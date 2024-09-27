@@ -2,6 +2,7 @@
 import Layout from "./components/Layout";
 import DashboardPage from "./pages/DashboardPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import ProductCreatePage from "./pages/ProductCreatePage";
 import ProductPage from "./pages/ProductPage";
 import SalePage from "./pages/SalePage";
 import VoucherPage from "./pages/VoucherPage";
@@ -20,6 +21,11 @@ const router = createBrowserRouter([
             {
                 path: "product",
                 element: <ProductPage/>
+            },
+            {
+                path: "product/create",
+                element: <ProductCreatePage/>
+
             },
             {
                 path: "sale",

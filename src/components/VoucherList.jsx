@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom'
 
 const VoucherList = () => {
     return (
-
-
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <div className="flex justify-between p-3">
                 <form className='w-1/5'>
