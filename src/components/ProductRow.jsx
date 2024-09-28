@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { HiOutlinePencil, HiOutlineTrash } from 'react-icons/hi2'
 import { useSWRConfig } from 'swr';
 import { bouncy } from 'ldrs'
+import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 bouncy.register()
 
@@ -20,6 +22,7 @@ const ProductRow = ({ product: { id, product_name, price, created_at } }) => {
             await fetch(import.meta.env.VITE_API_URL + '/products/' + id, {
                 method: 'DELETE',
             })
+            toast.success('Product deleted successfully');
             mutate(import.meta.env.VITE_API_URL + '/products');
         }
     }
@@ -41,12 +44,12 @@ const ProductRow = ({ product: { id, product_name, price, created_at } }) => {
             </td>
             <td className="px-6 py-4 text-end">
                 <div className="inline-flex rounded-md shadow-lg" role="group">
-                    <button
+                    <Link to={'/product/edit/' + id}
                         type="button"
                         className="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-l-lg transition-all  ease-in-out  dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:hover:text-white"
                     >
                         <HiOutlinePencil className="w-5 h-5" />
-                    </button>
+                    </Link>
                     <button onClick={handleDeleteBtn}
                         type="button"
                         className="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-r-lg transition-all  ease-in-out  dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:hover:text-white"
