@@ -10,7 +10,7 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 tailspin.register()
 
 const ProductEditCard = () => {
-    const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const { register, formState: { errors }, handleSubmit } = useForm();
 
     const { id } = useParams();
 
